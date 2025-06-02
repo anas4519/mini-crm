@@ -11,7 +11,6 @@ To set up and run this project locally, follow these steps:
 Make sure you have the following installed:
 - Node.js (LTS version recommended)
 - npm or Yarn (npm is used in these instructions)
-- Bun (for frontend dependencies)
 
 ### Backend Setup
 
@@ -25,7 +24,7 @@ Make sure you have the following installed:
     ```
 3.  Start the backend server:
     ```bash
-    npm start
+    npm run dev
     ```
     The backend server will typically run on `http://localhost:3000`.
 
@@ -37,13 +36,13 @@ Make sure you have the following installed:
     ```
 2.  Install frontend dependencies using Bun:
     ```bash
-    bun install
+    npm install
     ```
 3.  Start the frontend development server:
     ```bash
-    bun dev
+    npm run dev
     ```
-    The frontend application will typically run on `http://localhost:5173` (or another available port).
+    The frontend application will typically run on `http://localhost:8080` (or another available port).
 
 ### Full Stack Setup
 
