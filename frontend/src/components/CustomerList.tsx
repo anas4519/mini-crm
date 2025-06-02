@@ -27,7 +27,7 @@ const CustomerList: React.FC<CustomerListProps> = ({ onBack }) => {
     const fetchCustomers = async () => {
       try {
         setLoading(true);
-        const response = await fetch('http://localhost:3000/api/customers');
+        const response = await fetch('https://mini-crm-lp2n.onrender.com/api/customers');
         if (!response.ok) {
           throw new Error(`HTTP error! status: ${response.status}`);
         }

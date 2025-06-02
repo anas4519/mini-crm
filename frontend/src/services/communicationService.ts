@@ -1,6 +1,6 @@
 import { CommunicationLog, Campaign, Customer } from "@/types/communication";
 
-const API_BASE_URL = 'http://localhost:3000/api';
+const API_BASE_URL = 'https://mini-crm-lp2n.onrender.com/api';
 
 class CommunicationService {
   async getSegmentCustomers(rules: any[]): Promise<Customer[]> {

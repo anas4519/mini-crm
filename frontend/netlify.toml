@@ -1,0 +1,11 @@
+[build]
+  # Existing build command
+  command = "npm run build"
+  # Existing publish directory (if you want to override the UI or ensure it)
+  publish = "dist" # Assuming 'dist' inside your 'frontend' folder
+
+[build.environment]
+  # This tells Netlify to specifically allow VITE_GOOGLE_CLIENT_ID
+  # to be found in the build output without failing the build.
+  # Replace 'VITE_GOOGLE_CLIENT_ID' with the exact variable name if it's different.
+  SECRETS_SCAN_OMIT_KEYS = "VITE_GOOGLE_CLIENT_ID"

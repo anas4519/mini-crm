@@ -8,26 +8,8 @@ import AddCustomer from "@/components/AddCustomer";
 import CustomerList from "@/components/CustomerList";
 import { useAuth } from "../contexts/AuthContext";
 import { communicationService } from "../services/communicationService";
-import { Campaign } from "../types/communication"; // Added this line
+import { Campaign } from "../types/communication";
 
-// Define the Campaign interface based on your API response
-// interface Campaign {
-//   _id: string;
-//   name: string;
-//   segmentName: string;
-//   segmentRules: {
-//     field: string;
-//     operator: string;
-//     value: string;
-//     _id: string;
-//   }[];
-//   audienceSize: number;
-//   status: string;
-//   totalSent: number;
-//   totalFailed: number;
-//   createdAt: string;
-//   updatedAt: string;
-// }
 
 const Index = () => {
   const { logout } = useAuth();
