@@ -2,6 +2,8 @@
 
 This project is a Customer Relationship Management (CRM) system designed to help manage customer interactions, campaigns, and analytics.
 
+[Deployed Link](https://xenocrmassignment.netlify.app/)
+
 ## Local Setup Instructions
 
 To set up and run this project locally, follow these steps:
