@@ -168,8 +168,49 @@ The Campaigns API allows you to manage marketing campaigns, including creating n
 | Endpoint | Method | Description | Request Body Example | Response Example |
 | :------- | :----- | :---------- | :------------------------------------------------------------------------------------------------------------------------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------- |
 | `/` | `GET` | **Get All Campaigns** \<br\> Retrieves a list of all campaigns, sorted by creation date in descending order. | N/A | `[{"_id": "60c72b2f9f1b2c0015a8c9e1", "name": "Summer Sale", "segmentName": "High Spenders", "audienceSize": 100, "createdAt": "2023-01-15T10:30:00.000Z"}]` |
-| `/` | `POST` | **Create a New Campaign** \<br\> Creates a new marketing campaign. | `{"name": "Holiday Promo", "segmentName": "Recent Visitors", "segmentRules": {"minVisits": 5}, "audienceSize": 250}` | `{"_id": "60c72b2f9f1b2c0015a8c9e2", "name": "Holiday Promo", "segmentName": "Recent Visitors", "audienceSize": 250, "createdAt": "2023-02-01T14:00:00.000Z"}` |
-| `/:id/logs` | `GET` | **Get Campaign Logs** \<br\> Retrieves communication logs associated with a specific campaign ID. | N/A | `[{"_id": "60c72b2f9f1b2c0015a8c9e3", "campaignId": "60c72b2f9f1b2c0015a8c9e2", "customerId": "60c72b2f9f1b2c0015a8c9e4", "message": "Your exclusive holiday offer is here!", "status": "sent", "timestamp": "2023-02-02T10:15:00.000Z"}]` |
+| `/` | `POST` | **Create a New Campaign** \<br\> Creates a new marketing campaign. | `{
+  "name": "Summer Sale 2025",
+  "segmentName": "High-Value Customers - Last 30 Days",
+  "segmentRules": [
+    {
+      "field": "totalOrders",
+      "operator": "greaterThan",
+      "value": 5
+    },
+    {
+      "field": "lastPurchaseDate",
+      "operator": "withinLastDays",
+      "value": 30
+    }
+  ],
+  "audienceSize": 15000
+}` |`{
+    "name": "Summer Sale 2023",
+    "segmentName": "High-Value Customers - Last 30 Days",
+    "segmentRules": [
+        {
+            "field": "totalOrders",
+            "operator": "greaterThan",
+            "value": "5",
+            "_id": "683eaf4a85ca602272882206"
+        },
+        {
+            "field": "lastPurchaseDate",
+            "operator": "withinLastDays",
+            "value": "30",
+            "_id": "683eaf4a85ca602272882207"
+        }
+    ],
+    "audienceSize": 15000,
+    "status": "PENDING",
+    "totalSent": 0,
+    "totalFailed": 0,
+    "_id": "683eaf4a85ca602272882205",
+    "createdAt": "2025-06-03T08:16:10.167Z",
+    "updatedAt": "2025-06-03T08:16:10.167Z",
+    "__v": 0
+}`|
+
 
 -----
 
