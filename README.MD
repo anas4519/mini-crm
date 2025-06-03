@@ -74,6 +74,7 @@ graph TD
     style B fill:#bbf,stroke:#333,stroke-width:2px
     style C fill:#bfb,stroke:#333,stroke-width:2px
     style D fill:#fbb,stroke:#333,stroke-width:2px
+```mermaid
 
 ## Summary of AI Tools and Other Tech Used
 
