@@ -142,3 +142,40 @@ This project is organized into two main directories: `backend` and `frontend`, e
 ├── tsconfig.node.json
 └── vite.config.ts
 ```
+
+Sure, here's API documentation for your campaign and customer routes, formatted for your `README.md` file.
+
+-----
+
+## API Documentation
+
+This document outlines the available API endpoints for managing campaigns and customers.
+
+-----
+
+### Campaigns API
+
+The Campaigns API allows you to manage marketing campaigns, including creating new campaigns, retrieving existing ones, and viewing communication logs.
+
+**Base URL:** `https://mini-crm-lp2n.onrender.com/api/campaigns`
+```bash
+| Endpoint | Method | Description | Request Body Example | Response Example |
+| :------- | :----- | :---------- | :------------------- | :--------------- |
+| `/` | `GET` | **Get All Campaigns** \<br\> Retrieves a list of all campaigns, sorted by creation date in descending order. | `N/A` | `[{"_id": "...", "name": "Summer Sale", "segmentName": "High Spenders", "audienceSize": 100, "createdAt": "..."}]` |
+| `/` | `POST` | **Create a New Campaign** \<br\> Creates a new marketing campaign. | `{"name": "Holiday Promo", "segmentName": "Recent Visitors", "segmentRules": {"minVisits": 5}, "audienceSize": 250}` | `{"_id": "...", "name": "Holiday Promo", "segmentName": "Recent Visitors", "audienceSize": 250, "createdAt": "..."}` |
+| `/:id/logs` | `GET` | **Get Campaign Logs** \<br\> Retrieves communication logs associated with a specific campaign ID. | `N/A` | `[{"_id": "...", "campaignId": "...", "customerId": "...", "message": "...", "status": "sent", "timestamp": "..."}]` |
+```
+-----
+
+### Customers API
+
+The Customers API allows you to manage customer records, including creating new customers and retrieving existing ones.
+
+**Base URL:** `https://mini-crm-lp2n.onrender.com/api/customers`
+```bash
+| Endpoint | Method | Description | Request Body Example | Response Example |
+| :------- | :----- | :---------- | :------------------- | :--------------- |
+| `/` | `GET` | **Get All Customers** \<br\> Retrieves a list of all customer records. | `N/A` | `[{"_id": "...", "name": "Jane Doe", "email": "jane.doe@example.com", "spend": 150.75, "visits": 3, "lastActive": "..."}]` |
+| `/` | `POST` | **Create a New Customer** \<br\> Creates a new customer record. | `{"name": "John Smith", "email": "john.smith@example.com", "spend": 75.20, "visits": 2, "lastActive": "2025-05-30T10:00:00Z"}` | `{"_id": "...", "name": "John Smith", "email": "john.smith@example.com", "spend": 75.20, "visits": 2, "lastActive": "...", "__v": 0}` |
+```
+
