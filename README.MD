@@ -56,7 +56,7 @@ Make sure you have the following installed:
 graph TD
     A[Client/Browser] -->|HTTP/REST| B(Frontend - React/Vite)
     B -->|HTTP/REST| C(Backend - Node.js/Express)
-    C -->|Database Queries| D[Database - MongoDB/PostgreSQL]
+    C -->|Database Queries| D[Database - MongoDB]
 
     subgraph Frontend
         B

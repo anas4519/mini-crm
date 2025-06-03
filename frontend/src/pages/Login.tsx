@@ -11,7 +11,6 @@ const Login = () => {
   const [error, setError] = useState<string | null>(null);
 
   const handleLoginSuccess = (credentialResponse: any) => {
-    // Use the login function from AuthContext
     login(credentialResponse);
     navigate("/");
   };
@@ -20,16 +19,6 @@ const Login = () => {
     setError("Login failed. Please try again.");
   };
 
-  const handleManualLogin = () => {
-    // For demo purposes, create a mock credential
-    const mockCredential = {
-      credential: "mock_credential_token",
-      clientId: "mock_client_id",
-      select_by: "user",
-    };
-    login(mockCredential);
-    navigate("/");
-  };
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-50 to-blue-50/30 p-4">
@@ -61,18 +50,7 @@ const Login = () => {
                 <div className="absolute inset-0 flex items-center">
                   <div className="w-full border-t border-gray-200"></div>
                 </div>
-                <div className="relative flex justify-center text-sm">
-                  <span className="px-2 bg-white text-gray-500">Or</span>
-                </div>
               </div>
-              
-              <Button 
-                onClick={handleManualLogin} 
-                variant="outline" 
-                className="w-full"
-              >
-                Continue without Google
-              </Button>
             </div>
           </div>
         </CardContent>
