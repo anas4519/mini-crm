@@ -74,7 +74,7 @@ graph TD
     style B fill:#bbf,stroke:#333,stroke-width:2px
     style C fill:#bfb,stroke:#333,stroke-width:2px
     style D fill:#fbb,stroke:#333,stroke-width:2px
-```mermaid
+```
 
 ## Summary of AI Tools and Other Tech Used
 
@@ -96,7 +96,7 @@ This project leverages the following technologies and tools:
 
 This project is organized into two main directories: `backend` and `frontend`, each containing its own set of files and subdirectories.
 
-'''
+```bash
 ├── .gitignore
 ├── README.MD
 ├── backend/
@@ -139,4 +139,4 @@ This project is organized into two main directories: `backend` and `frontend`, e
 ├── tsconfig.json
 ├── tsconfig.node.json
 └── vite.config.ts
-''''
+```
