@@ -147,6 +147,12 @@ Sure, here's API documentation for your campaign and customer routes, formatted 
 
 -----
 
+You're right\! My apologies. The previous format might not render perfectly as a table in a GitHub README due to how Markdown tables are parsed.
+
+Here are the API documentation tables, specifically designed to render well in a GitHub README. I've used standard Markdown table syntax.
+
+-----
+
 ## API Documentation
 
 This document outlines the available API endpoints for managing campaigns and customers.
@@ -158,13 +164,13 @@ This document outlines the available API endpoints for managing campaigns and cu
 The Campaigns API allows you to manage marketing campaigns, including creating new campaigns, retrieving existing ones, and viewing communication logs.
 
 **Base URL:** `https://mini-crm-lp2n.onrender.com/api/campaigns`
-```bash
+
 | Endpoint | Method | Description | Request Body Example | Response Example |
-| :------- | :----- | :---------- | :------------------- | :--------------- |
-| `/` | `GET` | **Get All Campaigns** \<br\> Retrieves a list of all campaigns, sorted by creation date in descending order. | `N/A` | `[{"_id": "...", "name": "Summer Sale", "segmentName": "High Spenders", "audienceSize": 100, "createdAt": "..."}]` |
-| `/` | `POST` | **Create a New Campaign** \<br\> Creates a new marketing campaign. | `{"name": "Holiday Promo", "segmentName": "Recent Visitors", "segmentRules": {"minVisits": 5}, "audienceSize": 250}` | `{"_id": "...", "name": "Holiday Promo", "segmentName": "Recent Visitors", "audienceSize": 250, "createdAt": "..."}` |
-| `/:id/logs` | `GET` | **Get Campaign Logs** \<br\> Retrieves communication logs associated with a specific campaign ID. | `N/A` | `[{"_id": "...", "campaignId": "...", "customerId": "...", "message": "...", "status": "sent", "timestamp": "..."}]` |
-```
+| :------- | :----- | :---------- | :------------------------------------------------------------------------------------------------------------------------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------- |
+| `/` | `GET` | **Get All Campaigns** \<br\> Retrieves a list of all campaigns, sorted by creation date in descending order. | N/A | `[{"_id": "60c72b2f9f1b2c0015a8c9e1", "name": "Summer Sale", "segmentName": "High Spenders", "audienceSize": 100, "createdAt": "2023-01-15T10:30:00.000Z"}]` |
+| `/` | `POST` | **Create a New Campaign** \<br\> Creates a new marketing campaign. | `{"name": "Holiday Promo", "segmentName": "Recent Visitors", "segmentRules": {"minVisits": 5}, "audienceSize": 250}` | `{"_id": "60c72b2f9f1b2c0015a8c9e2", "name": "Holiday Promo", "segmentName": "Recent Visitors", "audienceSize": 250, "createdAt": "2023-02-01T14:00:00.000Z"}` |
+| `/:id/logs` | `GET` | **Get Campaign Logs** \<br\> Retrieves communication logs associated with a specific campaign ID. | N/A | `[{"_id": "60c72b2f9f1b2c0015a8c9e3", "campaignId": "60c72b2f9f1b2c0015a8c9e2", "customerId": "60c72b2f9f1b2c0015a8c9e4", "message": "Your exclusive holiday offer is here!", "status": "sent", "timestamp": "2023-02-02T10:15:00.000Z"}]` |
+
 -----
 
 ### Customers API
@@ -172,10 +178,9 @@ The Campaigns API allows you to manage marketing campaigns, including creating n
 The Customers API allows you to manage customer records, including creating new customers and retrieving existing ones.
 
 **Base URL:** `https://mini-crm-lp2n.onrender.com/api/customers`
-```bash
+
 | Endpoint | Method | Description | Request Body Example | Response Example |
-| :------- | :----- | :---------- | :------------------- | :--------------- |
-| `/` | `GET` | **Get All Customers** \<br\> Retrieves a list of all customer records. | `N/A` | `[{"_id": "...", "name": "Jane Doe", "email": "jane.doe@example.com", "spend": 150.75, "visits": 3, "lastActive": "..."}]` |
-| `/` | `POST` | **Create a New Customer** \<br\> Creates a new customer record. | `{"name": "John Smith", "email": "john.smith@example.com", "spend": 75.20, "visits": 2, "lastActive": "2025-05-30T10:00:00Z"}` | `{"_id": "...", "name": "John Smith", "email": "john.smith@example.com", "spend": 75.20, "visits": 2, "lastActive": "...", "__v": 0}` |
-```
+| :------- | :----- | :---------- | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `/` | `GET` | **Get All Customers** \<br\> Retrieves a list of all customer records. | N/A | `[{"_id": "60c72b2f9f1b2c0015a8c9e4", "name": "Jane Doe", "email": "jane.doe@example.com", "spend": 150.75, "visits": 3, "lastActive": "2023-05-28T12:00:00.000Z"}]` |
+| `/` | `POST` | **Create a New Customer** \<br\> Creates a new customer record. | `{"name": "John Smith", "email": "john.smith@example.com", "spend": 75.20, "visits": 2, "lastActive": "2025-05-30T10:00:00Z"}` | `{"_id": "60c72b2f9f1b2c0015a8c9e5", "name": "John Smith", "email": "john.smith@example.com", "spend": 75.20, "visits": 2, "lastActive": "2025-05-30T10:00:00.000Z", "__v": 0}` |
 
