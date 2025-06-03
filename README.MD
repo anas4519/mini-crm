@@ -4,6 +4,8 @@ This project is a Customer Relationship Management (CRM) system designed to help
 
 [Deployed Link](https://xenocrmassignment.netlify.app/)
 
+[Demo Video](https://youtu.be/nuAdANhALOY)
+
 ## Local Setup Instructions
 
 To set up and run this project locally, follow these steps:
@@ -143,14 +145,6 @@ This project is organized into two main directories: `backend` and `frontend`, e
 └── vite.config.ts
 ```
 
-Sure, here's API documentation for your campaign and customer routes, formatted for your `README.md` file.
-
------
-
-You're right\! My apologies. The previous format might not render perfectly as a table in a GitHub README due to how Markdown tables are parsed.
-
-Here are the API documentation tables, specifically designed to render well in a GitHub README. I've used standard Markdown table syntax.
-
 -----
 
 ## API Documentation
@@ -165,26 +159,125 @@ The Campaigns API allows you to manage marketing campaigns, including creating n
 
 **Base URL:** `https://mini-crm-lp2n.onrender.com/api/campaigns`
 
-| Endpoint | Method | Description | Request Body Example | Response Example |
-| :------- | :----- | :---------- | :------------------------------------------------------------------------------------------------------------------------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------- |
-| `/` | `GET` | **Get All Campaigns** \<br\> Retrieves a list of all campaigns, sorted by creation date in descending order. | N/A | `[{"_id": "60c72b2f9f1b2c0015a8c9e1", "name": "Summer Sale", "segmentName": "High Spenders", "audienceSize": 100, "createdAt": "2023-01-15T10:30:00.000Z"}]` |
-| `/` | `POST` | **Create a New Campaign** \<br\> Creates a new marketing campaign. | `{
-  "name": "Summer Sale 2025",
-  "segmentName": "High-Value Customers - Last 30 Days",
-  "segmentRules": [
+| Endpoint    | Method | Description                                                                   | Request Body Example | Response Example |
+| :---------- | :----- | :---------------------------------------------------------------------------- | :------------------- | :--------------- |
+| `/`         | `GET`  | **Get All Campaigns** \<br\> Retrieves a list of all campaigns, sorted by creation date in descending order. | N/A | See GET All Campaigns Response Example |
+| `/`         | `POST` | **Create a New Campaign** \<br\> Creates a new marketing campaign.              | See Create Campaign Request Example | See Create Campaign Response Example |
+| `/:id/logs` | `GET`  | **Get Campaign Logs** \<br\> Retrieves communication logs associated with a specific campaign ID. | N/A | `[{"_id": "...", "campaignId": "...", "customerId": "...", "message": "...", "status": "sent", "timestamp": "..."}]` |
+
+**Examples for Campaigns API:**
+
+**GET All Campaigns Response Example:**
+
+```json
+[
     {
-      "field": "totalOrders",
-      "operator": "greaterThan",
-      "value": 5
+        "_id": "683ea09957ae2a099bf60ee7",
+        "name": "Summer Sale 2025",
+        "segmentName": "High-Value Customers - Last 30 Days",
+        "segmentRules": [
+            {
+                "field": "totalOrders",
+                "operator": "greaterThan",
+                "value": "5",
+                "_id": "683ea09957ae2a099bf60ee8"
+            },
+            {
+                "field": "lastPurchaseDate",
+                "operator": "withinLastDays",
+                "value": "30",
+                "_id": "683ea09957ae2a099bf60ee9"
+            }
+        ],
+        "audienceSize": 15000,
+        "status": "PENDING",
+        "totalSent": 0,
+        "totalFailed": 0,
+        "createdAt": "2025-06-03T07:13:29.984Z",
+        "updatedAt": "2025-06-03T07:13:29.984Z",
+        "__v": 0
     },
     {
-      "field": "lastPurchaseDate",
-      "operator": "withinLastDays",
-      "value": 30
+        "_id": "683e05b96ec6e8df71543488",
+        "name": "Campaign for T Series Music",
+        "segmentName": "T Series Music",
+        "segmentRules": [
+            {
+                "field": "spend",
+                "operator": ">",
+                "value": "10000",
+                "_id": "683e05b96ec6e8df71543489"
+            },
+            {
+                "field": "age",
+                "operator": "<",
+                "value": "18",
+                "_id": "683e05b96ec6e8df7154348a"
+            },
+            {
+                "field": "spend",
+                "operator": ">",
+                "value": "",
+                "_id": "683e05b96ec6e8df7154348b"
+            }
+        ],
+        "audienceSize": 0,
+        "status": "PENDING",
+        "totalSent": 0,
+        "totalFailed": 0,
+        "createdAt": "2025-06-02T20:12:41.504Z",
+        "updatedAt": "2025-06-02T20:12:41.504Z",
+        "__v": 0
+    },
+    {
+        "_id": "683e01006ec6e8df71543442",
+        "name": "Campaign for Myntra",
+        "segmentName": "Myntra",
+        "segmentRules": [
+            {
+                "field": "spend",
+                "operator": ">",
+                "value": "10000",
+                "_id": "683e01006ec6e8df71543443"
+            }
+        ],
+        "audienceSize": 0,
+        "status": "PENDING",
+        "totalSent": 0,
+        "totalFailed": 0,
+        "createdAt": "2025-06-02T19:52:32.781Z",
+        "updatedAt": "2025-06-02T19:52:32.781Z",
+        "__v": 0
     }
-  ],
-  "audienceSize": 15000
-}` |`{
+]
+```
+
+**Create Campaign Request Example:**
+
+```json
+{
+    "name": "Summer Sale 2023",
+    "segmentName": "High-Value Customers - Last 30 Days",
+    "segmentRules": [
+        {
+            "field": "totalOrders",
+            "operator": "greaterThan",
+            "value": 5
+        },
+        {
+            "field": "lastPurchaseDate",
+            "operator": "withinLastDays",
+            "value": 30
+        }
+    ],
+    "audienceSize": 15000
+}
+```
+
+**Create Campaign Response Example:**
+
+```json
+{
     "name": "Summer Sale 2023",
     "segmentName": "High-Value Customers - Last 30 Days",
     "segmentRules": [
@@ -209,8 +302,8 @@ The Campaigns API allows you to manage marketing campaigns, including creating n
     "createdAt": "2025-06-03T08:16:10.167Z",
     "updatedAt": "2025-06-03T08:16:10.167Z",
     "__v": 0
-}`|
-
+}
+```
 
 -----
 
@@ -221,7 +314,65 @@ The Customers API allows you to manage customer records, including creating new 
 **Base URL:** `https://mini-crm-lp2n.onrender.com/api/customers`
 
 | Endpoint | Method | Description | Request Body Example | Response Example |
-| :------- | :----- | :---------- | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `/` | `GET` | **Get All Customers** \<br\> Retrieves a list of all customer records. | N/A | `[{"_id": "60c72b2f9f1b2c0015a8c9e4", "name": "Jane Doe", "email": "jane.doe@example.com", "spend": 150.75, "visits": 3, "lastActive": "2023-05-28T12:00:00.000Z"}]` |
-| `/` | `POST` | **Create a New Customer** \<br\> Creates a new customer record. | `{"name": "John Smith", "email": "john.smith@example.com", "spend": 75.20, "visits": 2, "lastActive": "2025-05-30T10:00:00Z"}` | `{"_id": "60c72b2f9f1b2c0015a8c9e5", "name": "John Smith", "email": "john.smith@example.com", "spend": 75.20, "visits": 2, "lastActive": "2025-05-30T10:00:00.000Z", "__v": 0}` |
+| :------- | :----- | :---------- | :------------------- | :--------------- |
+| `/` | `GET` | **Get All Customers** \<br\> Retrieves a list of all customer records. | N/A | See GET All Customers Response Example |
+| `/` | `POST` | **Create a New Customer** \<br\> Creates a new customer record. | See Create Customer Request Example | See Create Customer Response Example |
 
+**Examples for Customers API:**
+
+**GET All Customers Response Example:**
+
+```json
+[
+    {
+        "_id": "683dd9b96ec6e8df7154343d",
+        "name": "Anas",
+        "email": "anas.test@example.com",
+        "spend": 100,
+        "visits": 10,
+        "lastActive": "2025-06-02T16:50:00.000Z",
+        "createdAt": "2025-06-02T17:04:57.866Z",
+        "updatedAt": "2025-06-02T17:04:57.866Z",
+        "__v": 0
+    },
+    {
+        "_id": "683e9f1c57ae2a099bf60eba",
+        "name": "John",
+        "email": "john.test@example.com",
+        "spend": 100,
+        "visits": 10,
+        "lastActive": "2025-06-02T16:50:00.000Z",
+        "createdAt": "2025-06-03T07:07:08.566Z",
+        "updatedAt": "2025-06-03T07:07:08.566Z",
+        "__v": 0
+    }
+]
+```
+
+**Create Customer Request Example:**
+
+```json
+{
+    "name": "John",
+    "email": "john.test@aaaaaaaaa.com",
+    "spend": 100,
+    "visits": 10,
+    "lastActive": "2025-06-02T16:50:00.000Z"
+}
+```
+
+**Create Customer Response Example:**
+
+```json
+{
+    "name": "John",
+    "email": "john.test@aaaaaaaaa.com",
+    "spend": 100,
+    "visits": 10,
+    "lastActive": "2025-06-02T16:50:00.000Z",
+    "_id": "683eb1ec85ca602272882220",
+    "createdAt": "2025-06-03T08:27:24.106Z",
+    "updatedAt": "2025-06-03T08:27:24.106Z",
+    "__v": 0
+}
+```
